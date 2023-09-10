@@ -1,27 +1,13 @@
-FROM golang:alpine as builder
-
-LABEL maintainer="Medlit Team Bangkit 2022"
+FROM golang:alpine
 
 RUN apk update && apk add --no-cache git
 
 WORKDIR /app
 
-COPY go.mod go.sum ./
-
-RUN go mod download 
-
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+RUN go mod tidy
 
-FROM alpine:latest
-RUN apk --no-cache add ca-certificates && update-ca-certificates
+RUN go build -o /medlit-api-backend
 
-WORKDIR /root/
-
-COPY --from=builder /app/main .
-#COPY --from=builder /app/.env .       
-
-EXPOSE 8080
-
-CMD ["./main"]
+CMD ["/medlit-api-backend"]
