@@ -38,6 +38,6 @@ func main() {
 	api.GET("/medicine/get/:id", controller.GetMedicineByID)
 	api.GET("/medicine/search", controller.GetMedicineByQuery)
 
-	port := ":" + os.Getenv("PORT")
+	port := ":" + os.Getenv("DB_PORT")
 	router.Run(port)
 }
