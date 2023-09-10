@@ -21,16 +21,16 @@ func ConnectToDatabase() *gorm.DB {
 	databaseName := os.Getenv("DB_NAME")
 	// production
 	// postgres
-	dsn := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s", dbHost, user, databaseName, password)
-	db, err := gorm.Open(postgres.New(postgres.Config{
-		DriverName: "cloudsqlpostgres",
-		DSN:        dsn,
-	}))
+	// dsn := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s", dbHost, user, databaseName, password)
+	// db, err := gorm.Open(postgres.New(postgres.Config{
+	// 	DriverName: "cloudsqlpostgres",
+	// 	DSN:        dsn,
+	// }))
 
 	// dev
 	// postgres
-	// dsn := fmt.Sprintf("host=%s user=%s dbname=%s port=5432 sslmode=disable password=%s", dbHost, user, databaseName, password)
-	// db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	dsn := fmt.Sprintf("host=%s user=%s dbname=%s port=5432 sslmode=disable password=%s", dbHost, user, databaseName, password)
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		panic(err)
