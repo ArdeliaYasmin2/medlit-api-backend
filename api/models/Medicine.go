@@ -40,7 +40,7 @@ type MedRepoInterface interface {
 }
 
 func (m *Repo) CreateMedicine(data Medicine) error {
-	err := DB.Create(data).Error
+	err := DB.Create(&data).Error
 	if err != nil {
 		return err
 	}
