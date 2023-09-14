@@ -2,7 +2,7 @@
 
 How to use the API:
 
--   Open your browser and go to endpoint https://medlit-app.et.r.appspot.com/api/medlit/
+-   Open your browser and go to endpoint https://medlit-api-backend-ixdr3wklua-uc.a.run.app/api/medlit/
 -   You should see json that returns
 
     ```
@@ -13,7 +13,7 @@ How to use the API:
     ```
 
 -   You can use the following endpoints to test the API:
--   Endpoint: https://medlit-app.et.r.appspot.com/api/medlit/
+-   Endpoint: https://medlit-api-backend-ixdr3wklua-uc.a.run.app/api/medlit/
 
 -   GET Method
 

@@ -65,7 +65,7 @@ func (m *Repo) GetMedicineByID(id string) (*Medicine, error) {
 func (m *Repo) GetMedicineByQuery(query string) ([]Medicine, error) {
 	var medicine []Medicine
 
-	err := DB.Where("generic_name LIKE ?", "%"+query+"%").Find(&medicine).Error
+	err := DB.Where("generic_name iLIKE ?", "%"+query+"%").Find(&medicine).Error
 	if err != nil {
 		return nil, err
 	}
